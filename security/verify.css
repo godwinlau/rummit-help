@@ -1,0 +1,7 @@
+:root { color-scheme: dark; font-family: -apple-system, BlinkMacSystemFont, sans-serif; background: #111; color: #fff; }
+* { box-sizing: border-box; }
+html, body { min-height: 100%; margin: 0; }
+.security-check { display: grid; justify-items: center; align-content: center; gap: 16px; min-height: 180px; padding: 20px 8px; }
+#check { min-height: 65px; max-width: 100%; }
+#status, noscript { max-width: 34ch; margin: 0; text-align: center; color: #b4b4b4; font-size: 13px; line-height: 1.5; overflow-wrap: anywhere; }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } }
