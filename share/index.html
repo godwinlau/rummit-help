@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en-PH">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="referrer" content="no-referrer">
+<meta name="robots" content="noindex,noarchive">
+<meta name="description" content="A public shop or drop shared from Rummit. Continue in the iPhone app.">
+<meta property="og:title" content="Shared on Rummit">
+<meta property="og:description" content="Independent thrift finds. View the public preview, then continue in the Rummit iPhone app.">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src https://loyuycskaazphwztyvwb.supabase.co/functions/v1/rack-api/v1/media/; connect-src https://loyuycskaazphwztyvwb.supabase.co/functions/v1/rack-api/v1/public-share/; base-uri 'none'; form-action 'none'; object-src 'none'">
+<title>Shared on Rummit</title>
+<link rel="stylesheet" href="./preview.css" integrity="sha384-v0MiCKkDrF9jxxUmTy83YVN8fMwblxIJGQ/cR5ft583gwOChFgjL90txQ7x4IA8Y">
+<script defer src="./preview.js" integrity="sha384-pPqfts41B3dCMOolx8ORhW+AaLJs8Wym6kKd63n4jZ5L3QY/yv09WNC5Rm/N+ipR"></script>
+</head>
+<body>
+<main>
+<p class="wordmark">rummit.</p>
+<p id="status" role="status" aria-live="polite">Opening the shared find…</p>
+<button id="retry" type="button" hidden>Try again</button>
+<article id="preview" hidden>
+<p id="kind" class="eyebrow"></p>
+<h1 id="title"></h1>
+<p id="description" class="description"></p>
+<img id="cover" class="cover" alt="" referrerpolicy="no-referrer" hidden>
+<section class="continue" aria-label="Continue in Rummit">
+<p class="shop" id="shopName"></p>
+<span class="handle" id="handle"></span>
+<p class="note">Find this shop in the Rummit iPhone app. Purchases and messages happen in the app, not on this preview.</p>
+</section>
+</article>
+<noscript><p>Enable JavaScript to view the public preview. You can also find the shop in the Rummit iPhone app.</p></noscript>
+<footer><a href="/support/">Support</a><a href="/privacy/">Privacy</a><a href="/terms/">Terms</a></footer>
+</main>
+</body>
+</html>
