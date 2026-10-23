@@ -7,7 +7,7 @@
   const SCRIPT = 'https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit';
   const ACTIONS = new Set(['login', 'register', 'password_request', 'password_confirm']);
   const UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/;
-  const CONFIG_KEYS = new Set(['version', 'provider', 'enabled', 'requiredFor', 'configurationPath', 'challengePath', 'challengeURL', 'siteKey']);
+  const CONFIG_KEYS = new Set(['version', 'provider', 'enabled', 'verificationAvailable', 'requiredFor', 'configurationPath', 'challengePath', 'challengeURL', 'siteKey']);
   const status = document.getElementById('status'), check = document.getElementById('check');
   const unavailable = () => { if (status) status.textContent = 'Couldn’t finish verification. Close this check and try again.'; };
   if (!status || !check) return;
@@ -69,11 +69,12 @@
     config = await Promise.race([configuration(), deadline]);
     if (!active || controller.signal.aborted) return;
     if (!config || typeof config !== 'object' || Array.isArray(config) || Object.keys(config).some(key => !CONFIG_KEYS.has(key))
-      || config.version !== 1 || config.provider !== 'turnstile' || config.enabled !== true || config.challengeURL !== PAGE
+      || config.version !== 1 || config.provider !== 'turnstile' || typeof config.enabled !== 'boolean' || config.verificationAvailable !== true || config.challengeURL !== PAGE
       || config.configurationPath !== undefined && config.configurationPath !== 'auth/challenge/config'
       || config.challengePath !== undefined && config.challengePath !== 'auth/challenge'
-      || !Array.isArray(config.requiredFor) || config.requiredFor.length < 1 || config.requiredFor.length > 4
-      || config.requiredFor.some(value => !ACTIONS.has(value)) || new Set(config.requiredFor).size !== config.requiredFor.length || !config.requiredFor.includes(action)
+      || !Array.isArray(config.requiredFor) || config.requiredFor.length > 4
+      || config.requiredFor.some(value => !ACTIONS.has(value)) || new Set(config.requiredFor).size !== config.requiredFor.length
+      || (config.enabled ? !config.requiredFor.includes(action) : config.requiredFor.length !== 0)
       || typeof config.siteKey !== 'string' || !/^[A-Za-z0-9_-]{20,128}$/.test(config.siteKey) || /^[123]x0{10}/.test(config.siteKey)) throw new Error();
   } catch { if (active) finish('error', 'unavailable'); return; }
   finally { clearTimeout(timeout); }
