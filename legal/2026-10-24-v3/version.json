@@ -1,0 +1,16 @@
+{
+  "version": "2026-10-24-v3",
+  "bundleSha256": "03f5729f80116b3c1d052e6519c67a6cb0deb204ca4b94e5aef34c6df8280352",
+  "privacy": {
+    "file": "privacy.html",
+    "url": "https://rummit.app/legal/2026-10-24-v3/6348c0ec8223b091191a0faabf1f75ceec36064dd76c141714db025ae671b45d/privacy.html",
+    "sha256": "6348c0ec8223b091191a0faabf1f75ceec36064dd76c141714db025ae671b45d",
+    "byteSize": 16191
+  },
+  "terms": {
+    "file": "terms.html",
+    "url": "https://rummit.app/legal/2026-10-24-v3/2357e2772f138e5879dbbf08e2dc34849f1ffe2dd16c884ae496f70c93d81461/terms.html",
+    "sha256": "2357e2772f138e5879dbbf08e2dc34849f1ffe2dd16c884ae496f70c93d81461",
+    "byteSize": 11602
+  }
+}
